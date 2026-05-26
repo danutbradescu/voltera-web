@@ -8,7 +8,6 @@ import {
   subWeeks, 
   isSameDay, 
   parseISO, 
-  ro 
 } from 'date-fns';
 import { ro as localeRo } from 'date-fns/locale';
 
@@ -53,8 +52,8 @@ export default function ProfessionalCalendar() {
     const token = localStorage.getItem('voicero_token');
     
     const url = editingBooking 
-      ? `http://localhost:3001/api/bookings/${editingBooking.id}` 
-      : 'http://localhost:3001/api/bookings/manual';
+      ? `${process.env.NEXT_PUBLIC_API_URL}/api/bookings/${editingBooking.id}` 
+      : '${process.env.NEXT_PUBLIC_API_URL}/api/bookings/manual';
     
     const method = editingBooking ? 'PATCH' : 'POST';
 
